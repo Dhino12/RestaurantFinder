@@ -5,4 +5,3 @@ SPA Vanilla Javascript
 - SPA
 - Costum Element
 - SASS
-
