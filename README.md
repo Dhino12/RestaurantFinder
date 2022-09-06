@@ -1,2 +1,0 @@
-# RestaurantFinder
-SPA Vanilla Javascript
