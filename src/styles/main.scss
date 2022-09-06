@@ -1,0 +1,48 @@
+.intro {
+    background-color: #f2f2f2;
+    min-height: 85vh;
+    padding-top: 20vh;
+
+    .container {
+        font-family: 'mukta-medium';
+
+        h1 {
+            font-size: 2.4em;
+            color: #272727;
+            text-align: center;
+        }
+
+        .row {
+            .icon {
+                width: 30px;
+                margin-right: 20px;
+                position: relative;
+                top: 6px;
+            }
+
+            .content {
+                padding: 0 20px;
+
+                h2 {
+                    text-align: center;
+                    margin-top: 8vh;
+                    margin-bottom: 3vh;
+                }
+            }
+
+            img[alt="gambar"] {
+                width: 100%;
+                border-radius: 15px;
+                box-shadow: 2px 3px 8px rgb(101, 101, 101);
+                transition: all .3s ease;
+                position: relative;
+                top:0;
+
+                &:hover {
+                    top: -14px;
+                    transform: scale(1.02);
+                }
+            }
+        }
+    }
+}

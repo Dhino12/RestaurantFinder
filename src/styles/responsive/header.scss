@@ -1,0 +1,18 @@
+@media only screen and (min-width: 992px) {
+  button {
+    display: none !important;
+  }
+
+  header {
+    width: 75%;
+
+    nav {
+      display: flex !important;
+      flex-basis: auto !important;
+    }
+    
+    ul {
+      flex-direction: row !important;
+    }
+  }
+}

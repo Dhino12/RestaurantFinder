@@ -1,0 +1,92 @@
+@use './fonts.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 90%;
+  border: 2px solid red;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 5vw;
+  margin: 30px auto;
+  border-radius: 50px; 
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: hsla(0, 0%, 100%, .8);
+  backdrop-filter: saturate(200%) blur(30px);
+
+  nav {
+    flex-basis: 100%;
+    padding: 10px 0;
+    display: none;
+  }
+
+  ul { 
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+  }
+
+  nav ul li {
+    height: 5vh;
+    list-style: none;
+    margin: 0px 20px;
+    padding: 10px;
+
+    a {
+      text-decoration: none;
+      font-family: sans-serif;
+      font-weight: bolder;
+      color: rgb(89 89 89);
+      transition: all .3s ease;
+    }
+  }
+
+  li:hover a {
+    color: red;
+  }
+
+  button {
+    min-width: 44px;
+    max-height: 44px;
+    background-color: #ffdede;
+    box-shadow: 1px 1px 5px rgb(255, 207, 207), -2px -2px 5px white;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 6px;
+    font-size: 20px;
+    border: none;
+    transition: all .3s ease;
+
+    &:hover {
+      font-size: 18px;
+      box-shadow: 2px 5px 5px #ffb8b8 inset, -2px -2px 5px #ffd7d7 inset;
+    }
+  }
+}
+
+.logo {
+  height: 100%;
+
+  img {
+    position: relative;
+    top: 2px;
+    margin-top: 5px;
+  }
+
+  h1 {
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    margin: 0 30px;
+    font-family: 'mukta-medium', sans-serif;
+    font-size: 1.6em;
+  }
+}
