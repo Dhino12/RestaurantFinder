@@ -1,7 +1,7 @@
-import imgLogo from '../../public/images/logo/logo.png';
-import fb from '../../public/icons/facebook.svg';
-import yt from '../../public/icons/youtube-icon.svg';
-import ig from '../../public/icons/instagram-icon.svg';
+// import imgLogo from '../../public/images/logo/logo.png';
+// import fb from '../../public/icons/facebook.svg';
+// import yt from '../../public/icons/youtube-icon.svg';
+// import ig from '../../public/icons/instagram-icon.svg';
 
 const header = () => {
     const img = document.querySelector('#logo');
