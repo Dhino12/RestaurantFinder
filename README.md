@@ -15,6 +15,12 @@ SPA Vanilla Javascript
 - https://www.touchbistro.com/blog/best-restaurant-websites/
 - https://themes.getbootstrap.com/preview/?theme_id=110459
 - https://github.com/Abdurraziq/Restolog
+- https://portfolio.indiefolio.com/project/5d8205fad52c6/restaurant-landing-page
+- https://www.codinglabweb.com/2021/03/css-responsive-profile-cards-with-slider.html
+- https://themes.getbootstrap.com/preview/?theme_id=103332
 
 ## Multiple 
 - https://dev.to/marcinwosinek/tutorial-for-building-multipage-website-with-webpack-4gdk
+
+## color
+- https://colorhunt.co/palette/f5eddccfd2cffa9494eb1d36

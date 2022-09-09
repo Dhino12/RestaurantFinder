@@ -8,7 +8,6 @@
 
 header {
   width: 90%;
-  border: 2px solid red;
   position: fixed;
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +17,7 @@ header {
   border-radius: 50px; 
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: hsla(0, 0%, 100%, .8);
   backdrop-filter: saturate(200%) blur(30px);
 
@@ -86,7 +85,11 @@ header {
     position: relative;
     top: -10px;
     margin: 0 30px;
-    font-family: 'mukta-medium', sans-serif;
     font-size: 1.6em;
   }
 }
+
+h1 {
+  font-family: 'mukta-medium', sans-serif;
+}
+

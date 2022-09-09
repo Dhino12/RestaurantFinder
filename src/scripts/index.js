@@ -1,6 +1,9 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/fonts.css';
 
+// import './views/components/headers/HeaderFloating'
+// import './views/components/footer/FooterWrapper'
+
 // header
 import '../styles/responsive/header.scss';
 import '../styles/header.scss';
