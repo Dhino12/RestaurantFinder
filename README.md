@@ -1,26 +1,5 @@
-# RestaurantFinder
-SPA Vanilla Javascript
-
-## Plan
-- SPA
-- Costum Element
-- SASS
-
-## Reference
-- https://www.zomato.com/
-- https://www.ubereats.com/
-- https://dribbble.com/shots/15579378-Food-Delivery-Landing-page
-- https://dribbble.com/shots/15785732/attachments/7594367?mode=media
-- https://dribbble.com/shots/16181028-Peri-Restaurant-Food-Delivery-Landing-Page [recommend]
-- https://www.touchbistro.com/blog/best-restaurant-websites/
-- https://themes.getbootstrap.com/preview/?theme_id=110459
-- https://github.com/Abdurraziq/Restolog
-- https://portfolio.indiefolio.com/project/5d8205fad52c6/restaurant-landing-page
-- https://www.codinglabweb.com/2021/03/css-responsive-profile-cards-with-slider.html
-- https://themes.getbootstrap.com/preview/?theme_id=103332
-
-## Multiple 
-- https://dev.to/marcinwosinek/tutorial-for-building-multipage-website-with-webpack-4gdk
-
-## color
-- https://colorhunt.co/palette/f5eddccfd2cffa9494eb1d36
+https://themes.getbootstrap.com/preview/?theme_id=103332
+https://www.uplabs.com/posts/interior-design-landing-page-3e982914-1854-49c9-9c6c-e108e08d4097
+https://foodapps.uk/
+https://eatsy.bold-themes.com/burger/home/home-03-donuts/
+https://preview.themeforest.net/item/foodota-online-food-delivery-wordpress-theme/full_screen_preview/31808524?_ga=2.245681345.498937815.1663410317-2079320373.1661246636

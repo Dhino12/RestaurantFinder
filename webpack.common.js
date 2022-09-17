@@ -18,13 +18,24 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/, // scss or css
         use: ["style-loader", "css-loader", "sass-loader"]
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        use: [
+          'file-loader',
+        ],
+      },
+      {
+        test: /\.html$/i,
+        use: ['html-loader'],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
+      favicon: path.resolve(__dirname, 'src/public/images/logo/logo.png')
     }),
     new CopyWebpackPlugin({
       patterns: [

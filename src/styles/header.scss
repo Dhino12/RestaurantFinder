@@ -6,7 +6,40 @@
   padding: 0;
 }
 
-header {
+a {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
+}
+
+.vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skip{
+  background-color: #ff0000;
+  color: white;
+  font-family: 'mukta-medium';
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 10px;
+  top: -10vh;
+  left: 15vh;
+  transition: all .5s ease;
+}
+
+.skip:focus {
+  top: 15vh;
+}
+
+.show {
+  display: block !important;
+}
+
+header-floating {
   width: 90%;
   position: fixed;
   display: flex;
@@ -15,6 +48,7 @@ header {
   padding: 0px 5vw;
   margin: 30px auto;
   border-radius: 50px; 
+  top: 0;
   left: 0;
   right: 0;
   z-index: 2;
@@ -36,7 +70,7 @@ header {
   nav ul li {
     height: 5vh;
     list-style: none;
-    margin: 0px 20px;
+    margin: 5px 20px;
     padding: 10px;
 
     a {
@@ -73,6 +107,8 @@ header {
 
 .logo {
   height: 100%;
+  position: relative;
+  top: 5px;
 
   img {
     position: relative;

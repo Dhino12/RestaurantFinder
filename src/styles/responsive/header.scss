@@ -1,9 +1,14 @@
 @media only screen and (min-width: 992px) {
+
+  .vertical {
+    display: inline-block !important;
+  }
+
   button {
     display: none !important;
   }
 
-  header {
+  header-floating {
     width: 75%;
 
     nav {
@@ -152,6 +157,10 @@
       display: flex;
       flex-direction: column;
 
+      .card {
+        width: 42vh;
+      }
+
       .row {
         display: flex;
         flex-direction: row;
@@ -185,7 +194,7 @@
 
   .footer {
     margin-top: -40px;
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
 
     div.content,
@@ -197,8 +206,4 @@
       margin: 0;
     }
   }
-}
-
-@media screen and (min-width: 700px) {
-  body {}
 }
