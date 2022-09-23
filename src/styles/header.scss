@@ -7,9 +7,15 @@
 }
 
 a {
+  display: inline-block;
+}
+
+a,
+button,
+input,
+textarea {
   min-width: 44px;
   min-height: 44px;
-  display: inline-block;
 }
 
 .vertical {
@@ -18,7 +24,7 @@ a {
   justify-content: center;
 }
 
-.skip{
+.skip {
   background-color: #ff0000;
   color: white;
   font-family: 'mukta-medium';
@@ -39,7 +45,7 @@ a {
   display: block !important;
 }
 
-header-floating {
+header {
   width: 90%;
   position: fixed;
   display: flex;
@@ -47,11 +53,11 @@ header-floating {
   justify-content: space-between;
   padding: 0px 5vw;
   margin: 30px auto;
-  border-radius: 50px; 
+  border-radius: 50px;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   background-color: hsla(0, 0%, 100%, .8);
   backdrop-filter: saturate(200%) blur(30px);
 
@@ -61,7 +67,7 @@ header-floating {
     display: none;
   }
 
-  ul { 
+  ul {
     display: flex;
     flex-basis: 100%;
     flex-direction: column;
@@ -128,4 +134,3 @@ header-floating {
 h1 {
   font-family: 'mukta-medium', sans-serif;
 }
-

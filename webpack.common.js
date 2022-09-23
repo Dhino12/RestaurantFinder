@@ -1,12 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
-    // sw: path.resolve(__dirname, 'src/scripts/sw.js'),
   },
   output: {
     filename: '[name].bundle.js',
@@ -17,34 +16,41 @@ module.exports = {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/, // scss or css
-        use: ["style-loader", "css-loader", "sass-loader"]
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          // Disables attributes processing
+          sources: false,
+        },
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+            },
+          },
         ],
-      },
-      {
-        test: /\.html$/i,
-        use: ['html-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.resolve(__dirname, 'src/templates/index.html'),
-      favicon: path.resolve(__dirname, 'src/public/images/logo/logo.png')
+        filename: path.resolve(__dirname, 'dist/index.html'),
+        template: path.resolve(__dirname, 'src/templates/index.html'),
     }),
     new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/'),
-        },
-      ],
+        patterns: [
+            {
+                from: path.resolve(__dirname, 'src/public'),
+                to: path.resolve(__dirname, 'dist/public'),
+            },
+        ],
     }),
-    new CleanWebpackPlugin()
   ],
 };

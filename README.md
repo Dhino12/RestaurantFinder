@@ -3,3 +3,8 @@ https://www.uplabs.com/posts/interior-design-landing-page-3e982914-1854-49c9-9c6
 https://foodapps.uk/
 https://eatsy.bold-themes.com/burger/home/home-03-donuts/
 https://preview.themeforest.net/item/foodota-online-food-delivery-wordpress-theme/full_screen_preview/31808524?_ga=2.245681345.498937815.1663410317-2079320373.1661246636
+
+
+https://abdurraziq.me/Restolog/
+https://fologue.web.app/#/detail/ateyf7m737ekfw1e867
+https://github.com/imranhsayed/react-pwa-workbox-example/blob/main/src/src-sw.js

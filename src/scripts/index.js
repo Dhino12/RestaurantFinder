@@ -1,23 +1,46 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/fonts.css';
 
-import './views/components/headers/HeaderFloating'
-import './views/components/main/jumbotron/Jumbotron';
-import './views/components/main/wrapperRestaurant/WrapperRestaurant';
-import './views/components/main/popularRestaurant/WrapperPopular';
-import './views/components/footer/FooterWrapper';
+// home
+import './views/components/home/jumbotron/Jumbotron';
+import './views/components/home/wrapperRestaurant/WrapperRestaurant';
+
+// detail
+import './views/components/detail/listMenu/ContainerList';
+import './views/components/detail/tentang/About';
+import './views/components/detail/information/RestaurantInfo';
+import './views/components/detail/review/ReviewList';
+
+// notfound
+import './views/components/notfound/notfound';
 
 // header
 import '../styles/responsive/header.scss';
-import '../styles/header.scss';
+import '../styles/responsive/responsive-detail.scss';
 
 // main
 import '../styles/main.scss';
+import '../styles/header.scss';
+import '../styles/detail.scss';
 
-import main from './views/main'
+// import hero from '../public/images/logo/logo.png';
 
-console.log('Hello Coders! :)');
+import App from './views/App';
+import swRegister from './utils/swRegister';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
-document.addEventListener('DOMContentLoaded', main);
-// const data = await fetch('')
-    
+const app = new App({
+    button: document.querySelector('#expand'),
+    drawer: document.querySelector('nav'),
+    content: document.querySelector('main'),
+});
+
+window.addEventListener('hashchange', () => {
+    app.renderPage();
+});
+
+window.addEventListener('load', async () => {
+    await app.renderPage();
+
+    await swRegister();
+});

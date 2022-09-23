@@ -1,5 +1,7 @@
-const { merge } = require('webpack-merge');
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
+const { merge } = require('webpack-merge');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -9,6 +11,11 @@ module.exports = merge(common, {
     static: path.resolve(__dirname, 'dist'),
     open: true,
     port: 9000,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Methods': '*',
+    },
     client: {
       overlay: {
         errors: true,
@@ -17,4 +24,7 @@ module.exports = merge(common, {
     },
     compress: true,
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
 });

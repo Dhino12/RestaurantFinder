@@ -1,0 +1,36 @@
+@media only screen and (min-width: 992px) { 
+    about-restaurant.detail {
+        flex-direction: row;
+        
+        .img-about {
+            width: 50%;
+            height: auto;
+        }
+
+        .tentang {
+            width: 50%;
+        }
+    }
+
+    container-list.container-detail {
+        flex-direction: row;
+
+        .list-menu {
+            margin-bottom: 0;
+            margin-right: 30px;
+            width: 70%;
+        }
+    }
+
+    aside-info {
+        width: 30%;
+    }
+    
+
+    div.favorite {
+        text-align: left;
+        margin: 0 30vh;
+        justify-content: left;
+
+    }
+}
