@@ -5,13 +5,16 @@ import html from './review.html';
 class Review extends HTMLElement {
     #reviews = [];
 
-    #callback = () => {};
-
     #buttonShowMore = null;
 
     set _setCustomerReview(reviews) {
-        this.#reviews = reviews;
         this.#buttonShowMore = this.querySelector('#expandReview');
+
+        if (this.#buttonShowMore !== null) {
+            this.#reviews = reviews;
+        } else {
+            this.#reviews = reviews.filter((review, index) => index < 3);
+        }
         console.log('button-expand =>', this.#buttonShowMore);
         this.render();
     }
@@ -24,31 +27,23 @@ class Review extends HTMLElement {
         this.#buttonShowMore = document.createElement('button');
         this.#buttonShowMore.innerText = 'Lihat review lainnya..';
         this.#buttonShowMore.id = 'expandReview';
-        this.appendChild(this.#buttonShowMore);
+        return this.#buttonShowMore;
     }
 
     render() {
         let reviewItem;
         this.innerHTML = html;
+        const divEl = this.querySelector('div');
 
         // eslint-disable-next-line consistent-return
-        this.#reviews.forEach((review, index) => {
-            if (index >= 3 && this.#buttonShowMore == null) {
-                this.#buttonExpandReview();
-                console.log('masuk if');
-
-                return false;
-            }
-
+        this.#reviews.forEach((review) => {
             reviewItem = document.createElement('article-review');
             reviewItem._setReviewData = review;
 
-            this.appendChild(reviewItem);
+            divEl.appendChild(reviewItem);
         });
 
-        console.log('kluar for');
-        const formReview = document.createElement('review-form');
-        this.appendChild(formReview);
+        divEl.append(this.#buttonExpandReview());
     }
 }
 

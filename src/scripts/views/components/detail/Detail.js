@@ -36,27 +36,34 @@ class Detail {
 
         document.querySelector('aside-info')._setInformationRestaurant = restaurant;
 
-        document.querySelector('review-list')._setCustomerReview = await restaurant.customerReviews;
+        document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
 
         LikeInitiator.init({
             restuarant: restaurant,
         });
 
         const expandReview = document.querySelector('#expandReview');
-        if (expandReview) {
-            expandReview.addEventListener('click', (e) => {
-                console.log('expand terclick');
-                document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
-                document.querySelector('review-form')._onSendReview = (event) => {
-                    event.preventDefault();
-                    this.postReview(restaurant);
-                };
-            });
-        }
+        expandReview.addEventListener('click', (e) => {
+            console.log('expand terclick');
+            e.target.classList.toggle('d-none');
+            document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
+            document.querySelector('review-form')._onSendReview = async (event) => {
+                event.preventDefault();
+                const result = await this.postReview(restaurant);
+                if (result) {
+                    document.querySelector('review-list')._setCustomerReview = result.customerReviews;
+                }
+            };
+        });
 
-        document.querySelector('review-form')._onSendReview = (event) => {
+        console.log('kluar if');
+        document.querySelector('review-form')._onSendReview = async (event) => {
             event.preventDefault();
-            this.postReview(restaurant);
+            const result = await this.postReview(restaurant);
+            if (result) {
+                console.log(result);
+                document.querySelector('review-list')._setCustomerReview = result.customerReviews;
+            }
         };
     }
 
@@ -84,10 +91,12 @@ class Detail {
             this.showAlert('Berhasil Posting Review', 'success');
             name.value = '';
             review.value = '';
-            document.querySelector('review-list')._setCustomerReview = result.customerReviews;
         } else {
             this.showAlert('Ooops gagal posting review', 'error');
+            return false;
         }
+
+        return result;
     }
 }
 

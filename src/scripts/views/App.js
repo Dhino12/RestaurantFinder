@@ -29,7 +29,6 @@ class App {
         skipLinkElem.addEventListener('click', (event) => {
             event.preventDefault();
             document.querySelector('#mainContent').focus();
-            console.log('jalan');
         });
     }
 }

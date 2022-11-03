@@ -3,10 +3,6 @@ import html from './review-form.html';
 class ReviewForm extends HTMLElement {
     #eventSend = null;
 
-    connectedCallback() {
-        this.render();
-    }
-
     set _onSendReview(eventSend) {
         this.#eventSend = eventSend;
         this.render();

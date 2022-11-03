@@ -2,6 +2,10 @@
     height: 50vh;
 }
 
+.d-none {
+    display: none !important;
+}
+
 .detail {
     padding: 10vh 0;
     display: flex;
@@ -134,7 +138,7 @@ aside-info {
     }
 
     #expandReview {
-        display: block !important;
+        display: block;
         margin: 0 auto;
         padding: 10px;
         border-radius: 5px;
