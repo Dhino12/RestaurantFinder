@@ -11,7 +11,10 @@ class Detail {
             <jumbotron-wrapper> </jumbotron-wrapper>
             <about-restaurant id="mainContent" tabindex="0"> </about-restaurant>
             <container-list></container-list>
-            <review-list></review-list>
+            <div class="review">
+                <review-list></review-list>
+                <review-form></review-form>
+            </div>
         `;
     }
 
@@ -44,24 +47,14 @@ class Detail {
 
         const expandReview = document.querySelector('#expandReview');
         expandReview.addEventListener('click', (e) => {
-            console.log('expand terclick');
             e.target.classList.toggle('d-none');
             document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
-            document.querySelector('review-form')._onSendReview = async (event) => {
-                event.preventDefault();
-                const result = await this.postReview(restaurant);
-                if (result) {
-                    document.querySelector('review-list')._setCustomerReview = result.customerReviews;
-                }
-            };
         });
 
-        console.log('kluar if');
         document.querySelector('review-form')._onSendReview = async (event) => {
             event.preventDefault();
             const result = await this.postReview(restaurant);
             if (result) {
-                console.log(result);
                 document.querySelector('review-list')._setCustomerReview = result.customerReviews;
             }
         };
@@ -77,26 +70,25 @@ class Detail {
     }
 
     static async postReview({ id }) {
-        console.log(id);
         const name = document.querySelector('#name');
         const review = document.querySelector('#review');
-        const result = await RestaurantSource.postRestaurant({
-            id,
-            name: name.value,
-            review: review.value,
-        });
-        console.log(result);
+        try {
+            const result = await RestaurantSource.postRestaurant({
+                id,
+                name: name.value,
+                review: review.value,
+            });
 
-        if (!result.error) {
             this.showAlert('Berhasil Posting Review', 'success');
             name.value = '';
             review.value = '';
-        } else {
+
+            return result;
+        } catch (error) {
             this.showAlert('Ooops gagal posting review', 'error');
+            console.error(error);
             return false;
         }
-
-        return result;
     }
 }
 

@@ -10,6 +10,7 @@ import './views/components/detail/listMenu/ContainerList';
 import './views/components/detail/tentang/About';
 import './views/components/detail/information/RestaurantInfo';
 import './views/components/detail/review/ReviewList';
+import './views/components/detail/review/ReviewForm';
 
 // notfound
 import './views/components/notfound/notfound';

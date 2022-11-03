@@ -1,9 +1,10 @@
 import './ReviewItem';
-import './ReviewForm';
 import html from './review.html';
 
 class Review extends HTMLElement {
     #reviews = [];
+
+    #callback = null;
 
     #buttonShowMore = null;
 
@@ -15,12 +16,7 @@ class Review extends HTMLElement {
         } else {
             this.#reviews = reviews.filter((review, index) => index < 3);
         }
-        console.log('button-expand =>', this.#buttonShowMore);
         this.render();
-    }
-
-    connectedCallback() {
-        this.classList.add('review');
     }
 
     #buttonExpandReview() {
