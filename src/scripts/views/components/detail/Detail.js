@@ -45,29 +45,18 @@ class Detail {
         const expandReview = document.querySelector('#expandReview');
         if (expandReview) {
             expandReview.addEventListener('click', (e) => {
-                e.target.innerText = '';
+                console.log('expand terclick');
                 document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
+                document.querySelector('review-form')._onSendReview = (event) => {
+                    event.preventDefault();
+                    this.postReview(restaurant);
+                };
             });
         }
 
-        document.querySelector('review-form')._onSendReview = async (e) => {
-            e.preventDefault();
-            const name = document.querySelector('#name');
-            const review = document.querySelector('#review');
-            const result = await RestaurantSource.postRestaurant({
-                id: restaurant.id,
-                name: name.value,
-                review: review.value,
-            });
-
-            if (result.error === false) {
-                this.showAlert('Berhasil Posting Review', 'success');
-                name.value = '';
-                review.value = '';
-                document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
-            } else {
-                this.showAlert('Ooops gagal posting review', 'error');
-            }
+        document.querySelector('review-form')._onSendReview = (event) => {
+            event.preventDefault();
+            this.postReview(restaurant);
         };
     }
 
@@ -78,6 +67,27 @@ class Detail {
             icon: `${type}`,
             confirmButtonText: 'Cool',
         });
+    }
+
+    static async postReview({ id }) {
+        console.log(id);
+        const name = document.querySelector('#name');
+        const review = document.querySelector('#review');
+        const result = await RestaurantSource.postRestaurant({
+            id,
+            name: name.value,
+            review: review.value,
+        });
+        console.log(result);
+
+        if (!result.error) {
+            this.showAlert('Berhasil Posting Review', 'success');
+            name.value = '';
+            review.value = '';
+            document.querySelector('review-list')._setCustomerReview = result.customerReviews;
+        } else {
+            this.showAlert('Ooops gagal posting review', 'error');
+        }
     }
 }
 

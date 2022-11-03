@@ -5,18 +5,19 @@ import html from './review.html';
 class Review extends HTMLElement {
     #reviews = [];
 
+    #callback = () => {};
+
     #buttonShowMore = null;
 
     set _setCustomerReview(reviews) {
         this.#reviews = reviews;
         this.#buttonShowMore = this.querySelector('#expandReview');
+        console.log('button-expand =>', this.#buttonShowMore);
         this.render();
     }
 
     connectedCallback() {
         this.classList.add('review');
-
-        this.#buttonShowMore = this.querySelector('#expandReview');
     }
 
     #buttonExpandReview() {
@@ -30,9 +31,12 @@ class Review extends HTMLElement {
         let reviewItem;
         this.innerHTML = html;
 
-        this.#reviews.every((review, index) => {
+        // eslint-disable-next-line consistent-return
+        this.#reviews.forEach((review, index) => {
             if (index >= 3 && this.#buttonShowMore == null) {
                 this.#buttonExpandReview();
+                console.log('masuk if');
+
                 return false;
             }
 
@@ -40,9 +44,9 @@ class Review extends HTMLElement {
             reviewItem._setReviewData = review;
 
             this.appendChild(reviewItem);
-            return true;
         });
 
+        console.log('kluar for');
         const formReview = document.createElement('review-form');
         this.appendChild(formReview);
     }
