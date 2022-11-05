@@ -1,10 +1,13 @@
-import FavoriteRestaurantIdb from '../data/favorite-idb';
+import createLikeButton from '../views/template/likeButton';
+import createUnlikeButton from '../views/template/unlikeButton';
 
 const LikeInitiator = {
-    async init({ restuarant }) {
-        this._restaurant = restuarant;
+    async init({ likeButtonContainer, favoriteRestaurant, restaurant }) {
+        this._likeButtonContainer = likeButtonContainer;
+        this._restaurant = restaurant;
+        this._favoriteRestaurant = favoriteRestaurant;
 
-        this._renderButton();
+        await this._renderButton();
     },
 
     async _renderButton() {
@@ -18,32 +21,47 @@ const LikeInitiator = {
     },
 
     async _isRestaurantExist(id) {
-        const restaurant = await FavoriteRestaurantIdb.getRestaurant(id);
+        const restaurant = await this._favoriteRestaurant.getRestaurant(id);
         return !!restaurant;
     },
 
+    stringToNode(htmlString) {
+        const div = document.createElement('div');
+        div.innerHTML = htmlString.trim();
+        return div;
+    },
+
     _renderLike() {
-        const buttonLike = document.querySelector('svg');
+        this._likeButtonContainer.replaceChild(
+            this.stringToNode(createLikeButton()),
+            this._likeButtonContainer.children[0],
+        );
+
+        const buttonLike = document.querySelector('#likeButton');
         buttonLike.classList.add('unactive');
         buttonLike.addEventListener('click', async () => {
             buttonLike.removeAttribute('class');
             buttonLike.classList.add('active');
 
-            // console.log(this._restaurant);
-            await FavoriteRestaurantIdb.addRestauarant(this._restaurant);
+            this._favoriteRestaurant.putRestauarant(this._restaurant);
             this._renderButton();
         });
     },
 
     _renderLiked() {
-        const buttonLike = document.querySelector('svg');
+        this._likeButtonContainer.replaceChild(
+            this.stringToNode(createUnlikeButton()),
+            this._likeButtonContainer.children[0],
+        );
+
+        const buttonLike = document.querySelector('#unlikeButton');
         buttonLike.classList.add('active');
 
         buttonLike.addEventListener('click', async () => {
             buttonLike.removeAttribute('class');
             buttonLike.classList.add('unactive');
 
-            await FavoriteRestaurantIdb.deleteRestaurant(this._restaurant.id);
+            this._favoriteRestaurant.deleteRestaurant(this._restaurant.id);
             this._renderButton();
         });
     },

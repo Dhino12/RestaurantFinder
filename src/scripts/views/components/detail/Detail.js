@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 import Swal from 'sweetalert2';
+import FavoriteRestaurantIdb from '../../../data/favorite-idb';
 import RestaurantSource from '../../../data/RestourantSource';
 import UrlParser from '../../../routes/url-parser';
 import LikeInitiator from '../../../utils/LikeInitiator';
@@ -42,7 +43,9 @@ class Detail {
         document.querySelector('review-list')._setCustomerReview = restaurant.customerReviews;
 
         LikeInitiator.init({
-            restuarant: restaurant,
+            likeButtonContainer: document.querySelector('.favorite'),
+            favoriteRestaurant: FavoriteRestaurantIdb,
+            restaurant,
         });
 
         const expandReview = document.querySelector('#expandReview');

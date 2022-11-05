@@ -255,6 +255,11 @@ aside-info {
     align-items: center;
     justify-content: center;
 
+    #likeButton, #unlikeButton {
+        background-color: transparent;
+        border: none;
+    }
+
     .unactive {
         fill: transparent;
         stroke: red;
