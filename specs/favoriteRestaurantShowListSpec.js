@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-idb';
 import FavoriteRestaurantSearchView from '../src/scripts/views/components/favorite/liked-restaurant/FavoriteRestaurantSearchView';
 import FavoriteRestaurantShowPresenter from '../src/scripts/views/components/favorite/liked-restaurant/FavoriteRestaurantShowPresenter';
 
 /* eslint-disable no-undef */
+// Menampilkan semua daftar restoran favorit
 describe('Showing all favorite list restaurant => ', () => {
     let view;
     const renderTemplate = () => {
@@ -14,8 +16,10 @@ describe('Showing all favorite list restaurant => ', () => {
         renderTemplate();
     });
 
-    describe('When no movies have been liked => ', () => {
-        it('should ask for the favorite movies', () => {
+    // Ketika tidak ada restoran yang disukai
+    describe('When no restaurant have been liked => ', () => {
+        // harus meminta restoran favorit
+        it('should ask for the favorite restaurant', () => {
             const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
             const data = new FavoriteRestaurantShowPresenter({
                 view,
@@ -27,8 +31,10 @@ describe('Showing all favorite list restaurant => ', () => {
         });
     });
 
-    describe('When favorite movies exist => ', () => {
-        it('should show the movies', (done) => {
+    // Ketika restaurant favorit ada
+    describe('When favorite restaurant exist => ', () => {
+        // tampilkan semua favorite restaurant
+        it('should show the restaurant', (done) => {
             document.getElementById('mainContent').addEventListener('restaurants:updated', () => {
                 expect(document.querySelectorAll('.card').length).toEqual(2);
 
