@@ -10,7 +10,6 @@ class Favorite {
 
     static async afterRender() {
         const restaurantFavorite = await FavoriteRestaurantIdb.getAllRestaurant();
-        console.log(restaurantFavorite);
         document.querySelector('wrapper-restaurant')._restaurants = restaurantFavorite;
         document.querySelector('wrapper-restaurant h1').innerText = 'Restaurant favorit anda';
 
