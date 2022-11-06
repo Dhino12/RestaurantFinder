@@ -49,6 +49,7 @@ describe('Like A Restaurant => ', () => {
     FavoriteRestaurantIdb.deleteRestaurant(1);
   });
 
+  // seharusnya tidak menambahkan film ketika tidak memiliki id
   it('should not add a movie when it has no id', async () => {
     await createLikeButtonPresenterWithRestaurant({});
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));

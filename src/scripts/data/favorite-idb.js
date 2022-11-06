@@ -24,6 +24,7 @@ const FavoriteRestaurantIdb = {
     },
 
     async putRestauarant(restaurant) {
+        // eslint-disable-next-line no-prototype-builtins
         if (!restaurant.hasOwnProperty('id')) return '';
         return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
     },
