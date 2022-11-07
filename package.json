@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint ./src",
     "test": "karma start",
+    "e2e": "codeceptjs run --steps",
     "serve": "http-server dist",
     "build-serve": "npm run build && npm run serve"
   },

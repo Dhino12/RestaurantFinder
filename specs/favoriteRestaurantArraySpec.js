@@ -24,15 +24,13 @@ const FavoriteRestaurantArray = {
 
         // pastikan id ini belum ada dalam daftar favoriteRestaurant
         if (this.getRestaurant(restaurant.id)) {
-        return;
+            return;
         }
 
         favoriteRestaurant.push(restaurant);
     },
 
     deleteRestaurant(id) {
-        // cara boros menghapus film dengan meng-copy film yang ada
-        // kecuali film dengan id == id
         favoriteRestaurant = favoriteRestaurant.filter((restaurant) => restaurant.id !== id);
     },
 };
