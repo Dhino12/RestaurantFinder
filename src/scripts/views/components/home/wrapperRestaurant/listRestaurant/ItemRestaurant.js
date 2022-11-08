@@ -26,7 +26,7 @@ class ItemRestaurant extends HTMLElement {
         let trimmedString = description.substr(0, 120);
         trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')));
 
-        this.querySelector('img').src = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`;
+        this.querySelector('img').setAttribute('data-src', `https://restaurant-api.dicoding.dev/images/small/${pictureId}`);
         this.querySelector('img').alt = `gambar restaurant ${name}`;
         this.querySelector('.city').innerText = city;
         this.querySelector('h2').innerText = name;

@@ -1,5 +1,4 @@
 /* eslint-disable new-cap */
-import Swal from 'sweetalert2';
 import FavoriteRestaurantIdb from '../../../data/favorite-idb';
 import RestaurantSource from '../../../data/RestourantSource';
 import UrlParser from '../../../routes/url-parser';
@@ -26,8 +25,8 @@ class Detail {
             restaurant,
         } = await restaurantDetail;
 
-        if (!restaurant) this.showAlert('Restaurant Detail gagal ditampilkan', 'error');
-        Swal.close();
+        // if (!restaurant) this.showAlert('Restaurant Detail gagal ditampilkan', 'error');
+        // this.closeAlert();
 
         document.querySelector('jumbotron-wrapper')._dataNameRestauarant = restaurant;
 
@@ -63,14 +62,23 @@ class Detail {
         };
     }
 
-    static showAlert(title, type) {
-        Swal.fire({
-            title,
-            text: 'Do you want to continue',
-            icon: `${type}`,
-            confirmButtonText: 'Cool',
-        });
-    }
+    // static showAlert(title, type) {
+    //     import('sweetalert2/dist/sweetalert2.min').then((module) => module.default)
+    //         .then((Swal) => {
+    //             Swal.fire({
+    //                 title,
+    //                 text: 'Do you want to continue',
+    //                 icon: `${type}`,
+    //                 confirmButtonText: 'Cool',
+    //             });
+    //         });
+    // }
+
+    // static closeAlert() {
+    //     import('sweetalert2/dist/sweetalert2.min')
+    //         .then((module) => module.default)
+    //         .then((Swal) => Swal.close());
+    // }
 
     static async postReview({ id }) {
         const name = document.querySelector('#name');

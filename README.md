@@ -8,3 +8,8 @@ https://preview.themeforest.net/item/foodota-online-food-delivery-wordpress-them
 https://abdurraziq.me/Restolog/
 https://fologue.web.app/#/detail/ateyf7m737ekfw1e867
 https://github.com/imranhsayed/react-pwa-workbox-example/blob/main/src/src-sw.js
+
+# ResApp
+`npm run build-image`
+`npm run build`
+`npm run build-image`

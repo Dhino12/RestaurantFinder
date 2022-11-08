@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
     "lint": "eslint ./src",
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
-    "serve": "http-server dist",
-    "build-serve": "npm run build && npm run serve"
+    "serve": "http-server dist --open",
+    "build-serve": "npm run build && npm run serve",
+    "build-image": "node sharp.js",
+    "build": "node sharp.js && webpack --config webpack.prod.js && node sharp.js"
   },
   "keywords": [],
   "author": "dhino12 <dhinorahmad0@gmail.com>",
@@ -30,6 +31,11 @@
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",
+    "image-minimizer-webpack-plugin": "^3.8.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
+    "imagemin-webpack-plugin": "^2.4.2",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.5.0",
     "karma": "^5.2.3",
@@ -42,7 +48,9 @@
     "puppeteer": "^19.2.2",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
+    "sharp": "^0.31.2",
     "style-loader": "^3.3.1",
+    "svgo": "^3.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
@@ -56,8 +64,8 @@
   },
   "dependencies": {
     "idb": "^7.0.2",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9",
-    "sweetalert2": "^11.4.33",
     "workbox-window": "^6.5.4"
   }
 }

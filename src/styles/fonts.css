@@ -1,4 +1,5 @@
 @font-face {
     font-family: 'mukta-medium';
     src: url('../public/fonts/mukta-medium.ttf');
+    font-display: swap;
 }

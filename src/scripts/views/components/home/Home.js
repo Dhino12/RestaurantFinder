@@ -1,7 +1,9 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable class-methods-use-this */
-import Swal from 'sweetalert2';
 import RestaurantSource from '../../../data/RestourantSource';
-import heros from '../../../../public/images/heros/hero-image_1.jpg';
+import herosLarge from '../../../../../dist/public/images/heros/hero-image_1-large.png';
+import herosSmall from '../../../../../dist/public/images/heros/hero-image_1-small.png';
+import herosWebp from '../../../../../dist/public/images/heros/hero-image_1-large.webp';
 import wave from '../../../../public/icons/grey_bottom_wave_01.png';
 
 class Home {
@@ -13,11 +15,20 @@ class Home {
     }
 
     static async afterRender() {
-        document.querySelector('.jumbotron img').src = heros;
+        console.log('X', window.screXenX);
+        console.log('Y', window.screenY);
+        document.querySelector('#sm-webp-image').srcset = herosWebp;
+        document.querySelector('.jumbotron picture source[type="image/png"]').srcset = herosSmall;
+        document.querySelector('#large-webp-image').srcset = herosWebp;
+        document.querySelector('.jumbotron picture img').src = herosLarge;
         document.querySelector('.jumbotron .wave').src = wave;
 
         const restaurants = await RestaurantSource.listRestaurant();
-        Swal.close();
+        // if (restaurants.length) {
+        //     import('sweetalert2/dist/sweetalert2.min')
+        //     .then((module) => module.default)
+        //     .then((Swal) => Swal.close());
+        // }
         document.querySelector('wrapper-restaurant')._restaurants = restaurants;
     }
 }
