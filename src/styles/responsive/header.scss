@@ -1,6 +1,24 @@
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 505px) {
   header {
     width: 50vh !important;
+  }
+
+  .explore {
+    .container {
+      .card {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 505px) {
+  .explore {
+    .container {
+      .card {
+        width: 45%;
+      }
+    }
   }
 }
 

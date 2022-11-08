@@ -1,4 +1,5 @@
 import html from './item.html';
+import htmlLoading from './loadingSkleton.html';
 
 class ItemRestaurant extends HTMLElement {
     #restaurant = {};
@@ -10,9 +11,15 @@ class ItemRestaurant extends HTMLElement {
 
     connectedCallback() {
         this.classList.add('card');
+        this.render();
     }
 
     render() {
+        if (this.#restaurant.id === undefined) {
+            this.innerHTML = htmlLoading;
+            return;
+        }
+
         this.innerHTML = html;
 
         const {
