@@ -55,7 +55,7 @@ module.exports = {
                 from: path.resolve(__dirname, 'src/public'),
                 to: path.resolve(__dirname, 'dist/public'),
                 globOptions: {
-                  ignore: ['**/images/**'],
+                  ignore: ['**/images/**', '**/fonts/**'],
                 },
             },
         ],

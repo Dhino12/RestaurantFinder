@@ -37,7 +37,7 @@ const app = new App({
     content: document.querySelector('main'),
 });
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange', async () => {
     app.renderPage();
 });
 

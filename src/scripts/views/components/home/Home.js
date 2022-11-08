@@ -15,8 +15,6 @@ class Home {
     }
 
     static async afterRender() {
-        console.log('X', window.screXenX);
-        console.log('Y', window.screenY);
         document.querySelector('#sm-webp-image').srcset = herosWebp;
         document.querySelector('.jumbotron picture source[type="image/png"]').srcset = herosSmall;
         document.querySelector('#large-webp-image').srcset = herosWebp;
@@ -24,11 +22,6 @@ class Home {
         document.querySelector('.jumbotron .wave').src = wave;
 
         const restaurants = await RestaurantSource.listRestaurant();
-        // if (restaurants.length) {
-        //     import('sweetalert2/dist/sweetalert2.min')
-        //     .then((module) => module.default)
-        //     .then((Swal) => Swal.close());
-        // }
         document.querySelector('wrapper-restaurant')._restaurants = restaurants;
     }
 }

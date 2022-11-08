@@ -3,6 +3,9 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -10,6 +13,10 @@ module.exports = merge(common, {
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /.s?css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -25,6 +32,14 @@ module.exports = merge(common, {
     ],
   },
   optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }],
+        },
+      }),
+    ],
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
@@ -53,6 +68,7 @@ module.exports = merge(common, {
       swDest: './sw.bundle.js',
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 
 });
