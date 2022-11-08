@@ -35,7 +35,7 @@ function imageResponsive(target, destination, format) {
 
 function main() {
     let pathImageRes = pathUrl('src/public/images/heros', 'dist/public/images/heros');
-    imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'png');
+    imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'jpeg');
 
     pathImageRes = pathUrl('src/public/images/logo', 'dist/public/images/logo');
     imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'png');

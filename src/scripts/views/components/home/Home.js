@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable class-methods-use-this */
 import RestaurantSource from '../../../data/RestourantSource';
-import herosLarge from '../../../../../dist/public/images/heros/hero-image_1-large.png';
-import herosSmall from '../../../../../dist/public/images/heros/hero-image_1-small.png';
+import herosLarge from '../../../../../dist/public/images/heros/hero-image_1-large.jpeg';
+import herosSmall from '../../../../../dist/public/images/heros/hero-image_1-small.jpeg';
 import herosWebp from '../../../../../dist/public/images/heros/hero-image_1-large.webp';
 import wave from '../../../../public/icons/grey_bottom_wave_01.png';
 
