@@ -8,7 +8,5 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 registerRoute(
     ({ url }) => url.origin === 'https://restaurant-api.dicoding.dev/review',
-    new StaleWhileRevalidate({
-        cacheName: 'review',
-    }),
+    new StaleWhileRevalidate(),
 );

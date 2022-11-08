@@ -5,7 +5,8 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserPlugin = require("terser-webpack-plugin");
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -32,11 +33,12 @@ module.exports = merge(common, {
     ],
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
-      new OptimizeCssAssetsPlugin({
-        cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }],
+      new TerserPlugin({
+        terserOptions: {
+          compress: true,
         },
       }),
     ],
@@ -69,6 +71,7 @@ module.exports = merge(common, {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 
 });
