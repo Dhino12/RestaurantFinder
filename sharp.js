@@ -13,10 +13,19 @@ function pathUrl(urlTarget, urlDestination) {
     return { targetLocation, destinationLocation };
 }
 
-function imageResponsive(target, destination, format) {
+function imageResponsive(target, destination, format, verySmall) {
     console.log(target);
     fs.readdirSync(target)
     .forEach((image) => {
+        if (verySmall) {
+            sharp(`${target}/${image}`)
+                .resize(80)
+                .toFile(path.resolve(
+                    __dirname,
+                    `${destination}/${image.split('.').slice(0, -1).join('.')}-small.${format}`,
+                ));
+            return;
+        }
         sharp(`${target}/${image}`)
             .resize(800)
             .toFile(path.resolve(
@@ -25,7 +34,7 @@ function imageResponsive(target, destination, format) {
             ));
 
         sharp(`${target}/${image}`)
-            .resize(480)
+            .resize(360)
             .toFile(path.resolve(
                 __dirname,
                 `${destination}/${image.split('.').slice(0, -1).join('.')}-small.${format}`,
@@ -41,7 +50,7 @@ function main() {
     imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'png');
 
     pathImageRes = pathUrl('src/public/images/logo', 'dist/public/images/logo');
-    imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'webp');
+    imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'webp', true);
 
     pathImageRes = pathUrl('src/public/images/heros', 'dist/public/images/heros');
     imageResponsive(pathImageRes.targetLocation, pathImageRes.destinationLocation, 'webp');

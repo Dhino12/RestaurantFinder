@@ -1,18 +1,15 @@
+// import Swal from 'sweetalert2';
 import API_ENDPOINT from '../global/api_endpoint';
 
 class RestaurantSource {
     // static showLoading() {
-    //     import('sweetalert2/dist/sweetalert2.min')
-    //         .then((module) => module.default)
-    //         .then((Swal) => {
-    //             Swal.fire({
-    //                 html: '<h5>Loading...</h5>',
-    //                 showConfirmButton: false,
-    //                 onOpen: () => {
-    //                   Swal.showLoading();
-    //                 },
-    //             });
-    //         });
+    //     Swal.fire({
+    //         html: '<h5>Loading...</h5>',
+    //         showConfirmButton: false,
+    //         onOpen: () => {
+    //           Swal.showLoading();
+    //         },
+    //     });
     // }
 
     static async listRestaurant() {
