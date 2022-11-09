@@ -1,6 +1,5 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/fonts.css';
-
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
@@ -39,7 +38,7 @@ const app = new App({
     content: document.querySelector('main'),
 });
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange', async () => {
     app.renderPage();
 });
 

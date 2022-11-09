@@ -2,6 +2,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozJpeg = require('imagemin-mozjpeg');
+const ImageminPngquant = require('imagemin-pngquant');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -63,6 +67,27 @@ module.exports = {
               },
           },
         ],
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozJpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        ImageminPngquant(),
+      ],
+    }),
+
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
     }),
   ],
 };

@@ -26,7 +26,6 @@ class Home {
         document.querySelector('.jumbotron .wave').src = wave;
 
         const restaurants = await RestaurantSource.listRestaurant();
-        // Swal.close();
         document.querySelector('wrapper-restaurant')._restaurants = restaurants;
     }
 }

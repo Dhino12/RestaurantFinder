@@ -22,6 +22,7 @@ class App {
     async renderPage() {
         const url = UrlParser.parseActiveWithCombiner();
         const page = Routes[url];
+        console.log(page);
         this._content.innerHTML = await page.render();
         await page.afterRender();
 

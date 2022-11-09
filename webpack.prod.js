@@ -4,14 +4,12 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-// const ImageminMozJpeg = require('imagemin-mozjpeg');
 const ImageminPngquant = require('imagemin-pngquant');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const CompressionPlugin = require('compression-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -19,6 +17,10 @@ module.exports = merge(common, {
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /.s?css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -74,7 +76,6 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     // new BundleAnalyzerPlugin(),
-
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
@@ -96,4 +97,5 @@ module.exports = merge(common, {
       overrideExtension: true,
     }),
   ],
+
 });

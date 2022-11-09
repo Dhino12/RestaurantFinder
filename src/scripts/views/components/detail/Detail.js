@@ -72,6 +72,12 @@ class Detail {
     //     });
     // }
 
+    // static closeAlert() {
+    //     import('sweetalert2/dist/sweetalert2.min')
+    //         .then((module) => module.default)
+    //         .then((Swal) => Swal.close());
+    // }
+
     static async postReview({ id }) {
         const name = document.querySelector('#name');
         const review = document.querySelector('#review');
