@@ -22,7 +22,7 @@ function imageResponsive(target, destination, format, verySmall) {
                 .resize(80)
                 .toFile(path.resolve(
                     __dirname,
-                    `${destination}/${image.split('.').slice(0, -1).join('.')}-small.${format}`,
+                    `${destination}/${image.split('.').slice(0, -1).join('.')}_small.${format}`,
                 ));
             return;
         }
@@ -30,14 +30,14 @@ function imageResponsive(target, destination, format, verySmall) {
             .resize(800)
             .toFile(path.resolve(
                 __dirname,
-                `${destination}/${image.split('.').slice(0, -1).join('.')}-large.${format}`,
+                `${destination}/${image.split('.').slice(0, -1).join('.')}_large.${format}`,
             ));
 
         sharp(`${target}/${image}`)
             .resize(360)
             .toFile(path.resolve(
                 __dirname,
-                `${destination}/${image.split('.').slice(0, -1).join('.')}-small.${format}`,
+                `${destination}/${image.split('.').slice(0, -1).join('.')}_small.${format}`,
             ));
     });
 }
