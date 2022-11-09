@@ -6,7 +6,6 @@ class WrapperRestaurant extends HTMLElement {
     #restaurants = [];
 
     set _restaurants(restaurants) {
-        console.info(restaurants);
         this.#restaurants = restaurants;
         this.render();
     }
