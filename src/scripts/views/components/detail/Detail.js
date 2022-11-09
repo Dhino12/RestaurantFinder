@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import FavoriteRestaurantIdb from '../../../data/favorite-idb';
 import RestaurantSource from '../../../data/RestourantSource';
 import UrlParser from '../../../routes/url-parser';
@@ -26,8 +26,8 @@ class Detail {
             restaurant,
         } = await restaurantDetail;
 
-        if (!restaurant) this.showAlert('Restaurant Detail gagal ditampilkan', 'error');
-        Swal.close();
+        // if (!restaurant) this.showAlert('Restaurant Detail gagal ditampilkan', 'error');
+        // Swal.close();
 
         document.querySelector('jumbotron-wrapper')._dataNameRestauarant = restaurant;
 
@@ -63,14 +63,14 @@ class Detail {
         };
     }
 
-    static showAlert(title, type) {
-        Swal.fire({
-            title,
-            text: 'Do you want to continue',
-            icon: `${type}`,
-            confirmButtonText: 'Cool',
-        });
-    }
+    // static showAlert(title, type) {
+    //     Swal.fire({
+    //         title,
+    //         text: 'Do you want to continue',
+    //         icon: `${type}`,
+    //         confirmButtonText: 'Cool',
+    //     });
+    // }
 
     static async postReview({ id }) {
         const name = document.querySelector('#name');
@@ -82,13 +82,13 @@ class Detail {
                 review: review.value,
             });
 
-            this.showAlert('Berhasil Posting Review', 'success');
+            // this.showAlert('Berhasil Posting Review', 'success');
             name.value = '';
             review.value = '';
 
             return result;
         } catch (error) {
-            this.showAlert('Ooops gagal posting review', 'error');
+            // this.showAlert('Ooops gagal posting review', 'error');
             console.error(error);
             return false;
         }

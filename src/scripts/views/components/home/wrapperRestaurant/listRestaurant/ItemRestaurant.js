@@ -24,9 +24,17 @@ class ItemRestaurant extends HTMLElement {
             id,
         } = this.#restaurant;
         let trimmedString = description.substr(0, 120);
+        const IMAGE_RESTAURANT = `https://restaurant-api.dicoding.dev/images/small/${pictureId}`;
         trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')));
 
-        this.querySelector('img').src = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`;
+        // diharapkan testing menggunakan development
+        if (process.env.NODE_ENV !== 'development') {
+                // atau ini dimatikan
+            this.querySelector('img').setAttribute('data-src', IMAGE_RESTAURANT);
+            this.querySelector('img').classList.add('lazyload');
+        } else {
+            this.querySelector('img').src = IMAGE_RESTAURANT;
+        }
         this.querySelector('img').alt = `gambar restaurant ${name}`;
         this.querySelector('.city').innerText = city;
         this.querySelector('h2').innerText = name;

@@ -1,6 +1,9 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/fonts.css';
 
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
 // home
 import './views/components/home/jumbotron/Jumbotron';
 import './views/components/home/wrapperRestaurant/WrapperRestaurant';
@@ -28,7 +31,7 @@ import '../styles/detail.scss';
 
 import App from './views/App';
 import swRegister from './utils/swRegister';
-import 'sweetalert2/dist/sweetalert2.min.css';
+// import 'sweetalert2/dist/sweetalert2.min.css';
 
 const app = new App({
     button: document.querySelector('#expand'),

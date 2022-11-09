@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
+    // harus mengembalikan restoran yang telah ditambahkan
     it('should return the restaurant that has been added', async () => {
         favoriteRestaurant.putRestauarant({ id: 1 });
         favoriteRestaurant.putRestauarant({ id: 2 });
@@ -9,12 +10,14 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
         expect(await favoriteRestaurant.getRestaurant(3)).toEqual(undefined);
     });
 
+    // harus mengembalikan data kosong apabila tidak memiliki properti yang benar
     it('should refuse a restaurant from being added if it does not have the correct property', async () => {
         favoriteRestaurant.putRestauarant({ somethingProp: 'property' });
 
         expect(await favoriteRestaurant.getAllRestaurant()).toEqual([]);
     });
 
+    // dapat mengembalikan semua restoran yang telah ditambahkan
     it('can return all of the restaurant that have been added', async () => {
         favoriteRestaurant.putRestauarant({ id: 1 });
         favoriteRestaurant.putRestauarant({ id: 2 });
@@ -28,6 +31,7 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
             ]);
     });
 
+    // harus menghapus restoran favorit
     it('should remove favorite restaurant', async () => {
         favoriteRestaurant.putRestauarant({ id: 1 });
         favoriteRestaurant.putRestauarant({ id: 2 });
@@ -42,7 +46,8 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
             ]);
     });
 
-    it('should handle request to remove a movie even though the movie has not been added', async () => {
+    // harus menangani permintaan menghapus restaurant ketika id tidak tersedia dalam data
+    it('should handle request to remove a restaurant even though the restaurant has not been added', async () => {
         favoriteRestaurant.putRestauarant({ id: 1 });
         favoriteRestaurant.putRestauarant({ id: 2 });
         favoriteRestaurant.putRestauarant({ id: 3 });

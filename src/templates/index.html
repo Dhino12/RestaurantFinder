@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../public/images/logo/logo.png" type="image/x-icon">
+  <meta name="description" content="Restaurant-Catalogue">
+  <link rel="preconnect" href="https://restaurant-api.dicoding.dev">
+  <link rel="shortcut icon" href="./public/icons/icon-72x72.webp" type="image/x-icon">
   <link rel="manifest" href="../public/app.webmanifest">
-  <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="./public/icons/icon-192x192.png">
   <title>RestoFinder</title>
 </head>
 
@@ -16,7 +18,12 @@
 
   <header>
     <div class="logo">
-      <img src="../public/images/logo/logo.png" width="40" alt="Logo RestoFinder">
+      <picture>
+        <source width="40" height="40"  media="(max-width: 600px)" type="image/webp" srcset="./public/images/logo/logo-small.webp">
+        <source width="40" height="40"  media="(max-width: 600px)" type="image/png"  srcset="./public/images/logo/logo-small.png">
+        <source width="40" height="40"  type="image/webp" srcset="./public/images/logo/logo-small.webp">
+        <img src="./public/images/logo/logo-small.png" width="40" height="40" alt="Logo RestoFinder">
+      </picture>
       <h1>RestoFinder</h1>
     </div>
     <button type="button" id="expand">☰</button>
@@ -33,20 +40,25 @@
 
   <footer class="footer">
     <div class="content">
-      <img src="../public/images/logo/logo.png" alt="" width="50">
+      <picture>
+        <source width="40" height="40"  media="(max-width: 600px)" type="image/webp" srcset="./public/images/logo/logo-small.webp">
+        <source width="40" height="40"  media="(max-width: 600px)" type="image/png"  srcset="./public/images/logo/logo-small.png">
+        <source width="40" height="40"  type="image/webp" srcset="./public/images/logo/logo-small.webp">
+        <img src="./public/images/logo/logo-small.png" width="40" height="40" alt="Logo RestoFinder">
+      </picture>
       <h1>RestoFinder</h1>
       <p>Copyright © 2022 - RestoFinder</p>
     </div>
     <div class="connect">
       <h2>Connect With Us</h2>
-      <a href="">
-        <img src="../public/icons/facebook.svg" alt="" width="30">
+      <a href="https://www.facebook.com" aria-label="link facebook">
+        <img src="../public/icons/facebook.svg" alt="icon facebook" width="30" height="30">
       </a>
-      <a href="">
-        <img src="../public/icons/youtube-icon.svg" alt="" width="30">
+      <a href="https://www.youtube.com" aria-label="link youtube">
+        <img src="../public/icons/youtube-icon.svg" alt="icon youtube" width="30" height="30">
       </a>
-      <a href="">
-        <img src="../public/icons/instagram-icon.svg" alt="" width="25">
+      <a href="https://www.instagram.com" aria-label="link instagram">
+        <img src="../public/icons/instagram-icon.svg" alt="icon instagram" width="25" height="25">
       </a>
     </div>
   </footer>

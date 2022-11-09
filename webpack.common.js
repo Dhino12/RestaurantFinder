@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/,
         use: [
           {
             loader: 'file-loader',
@@ -43,13 +43,25 @@ module.exports = {
     new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, 'dist/index.html'),
         template: path.resolve(__dirname, 'src/templates/index.html'),
+        minify: {
+          collapseWhitespace: true,
+          keepClosingSlash: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true,
+        },
     }),
     new CopyWebpackPlugin({
         patterns: [
-            {
-                from: path.resolve(__dirname, 'src/public'),
-                to: path.resolve(__dirname, 'dist/public'),
-            },
+          {
+              from: path.resolve(__dirname, 'src/public'),
+              to: path.resolve(__dirname, 'dist/public'),
+              globOptions: {
+                ignore: ['**/images/**', '**/fonts/**'],
+              },
+          },
         ],
     }),
   ],
