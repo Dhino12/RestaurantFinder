@@ -19,10 +19,10 @@ class Home {
 
     static async afterRender() {
         console.log(window.screen.availWidth, ' x ', window.screen.availHeight);
-        document.querySelector('#sm-webp-image').srcset = herosWebp;
-        document.querySelector('.jumbotron picture source[type="image/png"]').srcset = herosWebp;
+        document.querySelector('#sm-webp-image').srcset = herosWebpSmall;
+        document.querySelector('.jumbotron picture source[type="image/png"]').srcset = herosSmall;
         document.querySelector('#large-webp-image').srcset = herosWebp;
-        document.querySelector('.jumbotron picture img').src = herosWebp;
+        document.querySelector('.jumbotron picture img').src = herosLarge;
         document.querySelector('.jumbotron .wave').src = wave;
 
         const restaurants = await RestaurantSource.listRestaurant();
