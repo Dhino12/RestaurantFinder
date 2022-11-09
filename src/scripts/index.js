@@ -30,6 +30,7 @@ import '../styles/detail.scss';
 
 import App from './views/App';
 import swRegister from './utils/swRegister';
+// import 'sweetalert2/dist/sweetalert2.min.css';
 
 const app = new App({
     button: document.querySelector('#expand'),

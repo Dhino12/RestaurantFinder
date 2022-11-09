@@ -22,8 +22,7 @@ const createUnlikeButton = () => `
         <g></g>
         <g></g>
     </svg>
-
-</div>
+</button>
 `;
 
 export default createUnlikeButton;

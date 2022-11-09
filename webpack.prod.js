@@ -1,12 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const { merge } = require('webpack-merge');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminPngquant = require('imagemin-pngquant');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const TerserPlugin = require('terser-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -33,6 +36,7 @@ module.exports = merge(common, {
     ],
   },
   optimization: {
+    runtimeChunk: 'single',
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
@@ -72,6 +76,26 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     // new BundleAnalyzerPlugin(),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        ImageminPngquant(),
+      ],
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
+    }),
   ],
 
 });
