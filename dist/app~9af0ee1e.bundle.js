@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrestaurant_apps=self.webpackChunkrestaurant_apps||[]).push([[204],{},s=>{s.O(0,[946,2,17,337,492,393,535],(()=>{return a=6711,s(s.s=a);var a}));s.O()}]);

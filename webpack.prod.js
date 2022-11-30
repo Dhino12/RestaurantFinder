@@ -10,6 +10,7 @@ const ImageminMozjpeg = require('imagemin-mozjpeg');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -75,7 +76,10 @@ module.exports = merge(common, {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }),
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
